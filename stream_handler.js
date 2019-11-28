@@ -42,3 +42,8 @@ function timeUpdateHandler(){
     fetchNextSegment();
   }
 }
+/*
+TODO
+0. Reduce freezing between chunks more(try to shuffle chunk size)
+1. Logic of waiting for creating new chunks
+*/
