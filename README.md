@@ -1,5 +1,11 @@
 # videostream2.0
 
+# run
+
+Write 
+### node server.js 
+in console in project folder
+
 ## TO DO FAST
 0. use express for server
 1. translate frontend to react
