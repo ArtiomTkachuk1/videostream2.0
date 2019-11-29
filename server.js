@@ -8,8 +8,8 @@ http.createServer(function (request, response) {
     console.log('request starting...');
 
     var filePath = '.' + request.url;
-    if (filePath == '.clientClearJS/')
-        filePath = '.clientClearJS/index.html';
+    if (filePath == './')
+        filePath = './index.html';
 
     var extname = path.extname(filePath);
     var contentType = 'text/html';
