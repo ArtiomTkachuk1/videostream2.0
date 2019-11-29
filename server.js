@@ -1,13 +1,15 @@
 var http = require('http');
 var fs = require('fs');
-var path = require('path');
+var path = require('path')
+const express = require('express');
+
 
 http.createServer(function (request, response) {
     console.log('request starting...');
 
     var filePath = '.' + request.url;
-    if (filePath == './')
-        filePath = './index.html';
+    if (filePath == '.clientClearJS/')
+        filePath = '.clientClearJS/index.html';
 
     var extname = path.extname(filePath);
     var contentType = 'text/html';
@@ -67,6 +69,5 @@ http.createServer(function (request, response) {
           response.end(content, 'utf-8');
         }
     });
-
 }).listen(3000);
 console.log('Server running at http://127.0.0.1:3000/');
