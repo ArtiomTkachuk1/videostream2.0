@@ -22,7 +22,7 @@ function sourceOpen() {
   URL.revokeObjectURL(video.src);
   const sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
   sourceBuffer.mode = 'sequence';
-  console.log(mediaSource.sourceBuffers); 
+  console.log(mediaSource.sourceBuffers);
   fetch(getChunkPath())
   .then(response => response.arrayBuffer())
   .then(data => {
@@ -45,8 +45,3 @@ function timeUpdateHandler(){
     fetchNextSegment();
   }
 }
-/*
-TODO
-0. Reduce freezing between chunks more(try to shuffle chunk size)
-1. Logic of waiting for creating new chunks
-*/
