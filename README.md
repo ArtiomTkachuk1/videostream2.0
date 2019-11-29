@@ -2,6 +2,7 @@
 
 ## run
 
+install node.js
 Write 
 ### node server.js 
 in console in project folder
