@@ -2,10 +2,9 @@
 
 ## run
 
-install node.js
-Write 
+install node.js 
+In console in project folder write: 
 ### node server.js 
-in console in project folder
 
 ## TO DO FAST
 0. use express for server
