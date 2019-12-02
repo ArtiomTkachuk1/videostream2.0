@@ -1,4 +1,4 @@
-import React,{Component},{mediaSource} from 'react'
+import React,{Component} from 'react'
 //import ReactPlayer from 'react-player'
 
 
@@ -6,7 +6,7 @@ import React,{Component},{mediaSource} from 'react'
 export default class MyReactPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.mediaSource="ss"
+    this.mediaSource=new mediaSource();
     this.refStart='http://localhost:3000/assets/chunk';
     this.refEnd=".webm";
     this.chunkSize=5;
