@@ -1,17 +1,18 @@
 import React,{Component} from 'react'
-//import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player'
 
 
 
 export default class MyReactPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.mediaSource=new mediaSource();
+    this.mediaSource = new MediaSource();
+    console.log(this.mediaSource);
     this.refStart='http://localhost:3000/assets/chunk';
     this.refEnd=".webm";
     this.chunkSize=5;
     this.mediaSource.addEventListener('sourceopen', this.sourceOpen, { once: true });
-    this.src=URL.createObjectURL(this.MediaSource);
+    this.src=URL.createObjectURL(this.mediaSource);
     this.state = {chunkNum : -1};
   }
   getChunkPath(){
@@ -21,7 +22,7 @@ export default class MyReactPlayer extends React.Component {
     let ref=this.refStart+this.state.chunkNum+this.refEnd;
     return ref;
   }
-  sourceOpen() {
+  sourceOpen=()=>{
     URL.revokeObjectURL(this.src);
     const sourceBuffer = this.mediaSource.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
     sourceBuffer.mode = 'sequence';
@@ -59,7 +60,7 @@ export default class MyReactPlayer extends React.Component {
         >
           React player
         </h1>
-        <video
+        <ReactPlayer
           style={{
   							width:"120%",
   							height:"80%",

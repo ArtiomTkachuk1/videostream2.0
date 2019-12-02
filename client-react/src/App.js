@@ -4,12 +4,11 @@ import MyReactPlayer from './components/ReactPlayer/ReactPlayer'
 //import VideojsPlayer from './components/VideojsPlayer/VideojsPlayer'
 
 class App extends Component{
-
   render(){
     return(
       <React.Fragment>
         <MyReactPlayer
-          chunk_max={6}
+          chunk_max={5}
         />
       </React.Fragment>
     )
