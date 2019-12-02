@@ -8,7 +8,7 @@ class App extends Component{
     return(
       <React.Fragment>
         <MyReactPlayer
-          chunk_max={5}
+          chunk_max={6}
         />
       </React.Fragment>
     )

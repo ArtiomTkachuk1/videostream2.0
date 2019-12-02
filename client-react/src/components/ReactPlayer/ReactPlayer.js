@@ -1,5 +1,4 @@
-import React,{Component} from 'react'
-import ReactPlayer from 'react-player'
+import React from 'react'
 
 
 
@@ -17,7 +16,7 @@ export default class MyReactPlayer extends React.Component {
   }
   getChunkPath(){
     this.setState({
-      chunkNum:this.state.chunkNum+1
+      chunkNum:this.state.chunkNum=this.state.chunkNum+1
 		});
     let ref=this.refStart+this.state.chunkNum+this.refEnd;
     return ref;
@@ -33,6 +32,13 @@ export default class MyReactPlayer extends React.Component {
       sourceBuffer.appendBuffer(data);
     });
   }
+
+  handleVideoMounted = element => {
+    if (element !== null) {
+      element.currentTime = 30;
+    }
+  };
+
   fetchNextSegment() {
     fetch(this.getChunkPath())
     .then(response => response.arrayBuffer())
@@ -42,9 +48,10 @@ export default class MyReactPlayer extends React.Component {
     });
   }
 
-  timeUpdateHandler(){
-    let currentChunk=this.currentTime/this.chunkSize;
-    if(currentChunk>=this.chunkNum){
+  timeUpdateHandler=element=>{
+    let video=document.getElementById("video");
+    let currentChunk=video.currentTime/this.chunkSize;
+    if((currentChunk>=this.state.chunkNum)&&(currentChunk+1<this.props.chunk_max)){
       this.fetchNextSegment();
     }
   }
@@ -58,17 +65,22 @@ export default class MyReactPlayer extends React.Component {
               margin:"auto",
             }}
         >
-          React player
+          VideoTag
         </h1>
-        <ReactPlayer
+        <video
+          id="video"
           style={{
-  							width:"120%",
-  							height:"80%",
+  							width:"60%",
+  							height:"60%",
   							display:"flex",
   							margin:"auto",
   							backgroundColor:"black",
   						}}
           src={this.src}
+          controls={true}
+          muted={true}
+          autoPlay={true}
+          onTimeUpdate={this.timeUpdateHandler}
         />
       </React.Fragment>
     )
