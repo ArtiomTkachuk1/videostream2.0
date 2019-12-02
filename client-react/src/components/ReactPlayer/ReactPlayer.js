@@ -1,12 +1,15 @@
-import React from 'react'
-import ReactPlayer from 'react-player'
-export default class RP extends React.Component {
+import React,{Component},{mediaSource} from 'react'
+//import ReactPlayer from 'react-player'
+
+
+
+export default class MyReactPlayer extends React.Component {
   constructor(props) {
     super(props);
+    this.mediaSource="ss"
     this.refStart='http://localhost:3000/assets/chunk';
     this.refEnd=".webm";
     this.chunkSize=5;
-    this.mediaSource=new mediaSource();
     this.mediaSource.addEventListener('sourceopen', this.sourceOpen, { once: true });
     this.src=URL.createObjectURL(this.MediaSource);
     this.state = {chunkNum : -1};
@@ -56,7 +59,7 @@ export default class RP extends React.Component {
         >
           React player
         </h1>
-        <ReactPlayer
+        <video
           style={{
   							width:"120%",
   							height:"80%",
@@ -64,9 +67,7 @@ export default class RP extends React.Component {
   							margin:"auto",
   							backgroundColor:"black",
   						}}
-            url={this.src}
-            playing={true}
-            muted={true}
+          src={this.src}
         />
       </React.Fragment>
     )
