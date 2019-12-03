@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-export default class MyReactPlayer extends React.Component {
+export default class VideoTag extends React.Component {
   constructor(props) {
     super(props);
     this.mediaSource = new MediaSource();

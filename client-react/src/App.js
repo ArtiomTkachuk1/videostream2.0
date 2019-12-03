@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import MyReactPlayer from './components/ReactPlayer/ReactPlayer'
-//import VideoTag from './components/VideoTag/VideoTag'
-//import VideojsPlayer from './components/VideojsPlayer/VideojsPlayer'
+import VideoTag from './components/VideoTag/VideoTag'
 
 class App extends Component{
   render(){
     return(
       <React.Fragment>
-        <MyReactPlayer
+        <VideoTag
           chunk_max={6}
         />
       </React.Fragment>
@@ -16,8 +14,3 @@ class App extends Component{
 }
 
 export default App;
-/*
-<VideoTag
-  chunk_max={6}
-/>
-*/
